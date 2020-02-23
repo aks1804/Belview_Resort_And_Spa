@@ -76,9 +76,9 @@ WSGI_APPLICATION = 'Belview_Resort_And_Spa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'PRACTICE1',
+        'NAME': 'mydatabase',
         'USER': 'root',
-        'PASSWORD': 'bCA3DB@99A2',
+        'PASSWORD': 'toor',
         'HOST': 'localhost',
         'PORT': '3306',
     }
