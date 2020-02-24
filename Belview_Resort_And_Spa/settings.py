@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Belview_Management.apps.BelviewManagementConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
