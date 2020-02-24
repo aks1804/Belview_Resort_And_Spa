@@ -4,27 +4,27 @@ from django.db import models
 
 class Employee(models.Model):
 	ename = models.CharField(max_length=20)
-	ecode = models.IntegerField(primary_key = True)
+	ecode = models.CharField(max_length=4, primary_key = True)
 	emp_date = models.DateTimeField()
 	salary = models.IntegerField()
 	last_inspection_date = models.DateTimeField()
 	inspected_by = models.ForeignKey("self", on_delete=models.CASCADE)
 	works_in = models.ForeignKey('Department', on_delete=models.CASCADE)
-
+    )
 
 class Department(models.Model):
 	dname = models.CharField(max_length=20)
-	dcode = models.IntegerField(primary_key=True)
+	dcode = models.CharField(max_length=4, primary_key=True)
 	number_of_employees = models.IntegerField()
 	budget = models.IntegerField()
 	last_inspection_date = models.DateTimeField()
-	in_charge = models.ForeignKey('Employee', on_delete=models.CASCADE)
-	located_in = models.ForeignKey('Location', on_delete=models.CASCADE)
+	in_charge = models.OneToOneField('Employee', on_delete=models.CASCADE, null=True)
+	located_in = models.OneToOneField('Location', on_delete=models.CASCADE, null=True)
 
 
 class Room(models.Model):
 	room_number = models.IntegerField()
-	location = models.ForeignKey('Location', on_delete=models.CASCADE)
+	location = models.OneToOneField('Location', on_delete=models.CASCADE, null=True)
 	occupation_status = models.CharField(max_length=20)
 	number_of_occupants = models.IntegerField()
 	room_type = models.CharField(max_length=20)
@@ -37,7 +37,7 @@ class Room(models.Model):
 class Location(models.Model):
 	lname = models.CharField(max_length=20)
 	max_capacity = models.IntegerField()
-	in_charge = models.ForeignKey('Employee', on_delete=models.CASCADE)
+
 
 class Guest(models.Model):
     reg_id = models.CharField(max_length=4)
