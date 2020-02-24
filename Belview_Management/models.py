@@ -49,6 +49,8 @@ class Guest(models.Model):
     check_in_date = models.DateTimeField()
     check_out_date = models.DateTimeField()
     room_no = models.ForeignKey(Room, on_delete=models.CASCADE)
+    class Meta:
+		unique_together = [["reg_id", "name"]]
 
 class Event(models.Model):
     event_code = models.CharField(max_length=4, primary_key = true)
@@ -61,23 +63,23 @@ class Event(models.Model):
     )
 
 class Utility(models.Model):
-      request_no = models.CharField(max_length=4, primary_key = true)
-      utility_name = models.CharField(max_length=30)
-      quantity = models.IntegerField(max_length=3)
-      status = models.BooleanField()
-      requested_dept =  models.ForeignKey(Department, on_delete=models.CASCADE)
+    request_no = models.CharField(max_length=4, primary_key = true)
+    utility_name = models.CharField(max_length=30)
+    quantity = models.IntegerField(max_length=3)
+    status = models.BooleanField()
+    requested_dept =  models.ForeignKey(Department, on_delete=models.CASCADE)
 
 class Store(models.Model):
-  storeName = models.CharField(max_length=30, primary_key = true)
-  last_inspection_date = models.DateTimeField()
-  lname = odels.ForeignKey(Department, on_delete=models.CASCADE)
+    storeName = models.CharField(max_length=30, primary_key = true)
+    last_inspection_date = models.DateTimeField()
+    lname = odels.ForeignKey(Department, on_delete=models.CASCADE)
 
 
 class ExtEmployee(models.Model):
-  empCode = models.CharField(max_length=4, primary_key = true)
-  emp_name = models.CharField(max_length=30)
-  start_date = models.DateTimeField()
-  last_inspection_date = models.DateTimeField()
+    empCode = models.CharField(max_length=4, primary_key = true)
+    emp_name = models.CharField(max_length=30)
+    start_date = models.DateTimeField()
+    last_inspection_date = models.DateTimeField()
 
 class GuestEvent(models.Model): # Intermediate Table for M:N Relation b/w Guest and Event
     guest_name = models.OneToOneField(Guest, on_delete=models.CASCADE)
