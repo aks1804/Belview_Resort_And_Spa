@@ -10,7 +10,6 @@ class Employee(models.Model):
 	last_inspection_date = models.DateTimeField()
 	inspected_by = models.ForeignKey("self", on_delete=models.CASCADE)
 	works_in = models.ForeignKey('Department', on_delete=models.CASCADE)
-    )
 
 class Department(models.Model):
 	dname = models.CharField(max_length=20)
