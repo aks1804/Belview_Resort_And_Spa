@@ -6,21 +6,21 @@
 {% block main-content %}
 <div class="row">
     <div class="card text-left col-md-6">
-        <div class="card-header bg-primary text-white"> Reservation:
-            <a href="{% url 'reservation-detail' checkin.reservation.reservation_id %}">{{ checkin.reservation }}</a>
+        <div class="card-header bg-primary text-blue"> Reservation:
+            <a href="{% url 'reservation-detail' checkin.reservation.reservation_id %}" class="text-white">{{ checkin.reservation }}</a>
         </div>
-        <div class="card-body bg-info text-white">Rooms:
+        <div class="card-body bg-info text-blue">Rooms:
             {% for room in rooms %}
             <a href="{% url 'room-detail' room %}" class="text-white">{{ room }}</a>{% if not forloop.last %}, {% endif %}
             {% empty %}No rooms in the reservation.
             {% endfor %}
         </div>
-        <div class="card-footer bg-info text-white">Amount = {{ checkin.initial_amount }}</div>
-        <div class="card-footer bg-info text-white">Check-In Date Time = {{ checkin.check_in_date_time }}</div>
+        <div class="card-footer bg-info text-blue">Amount = {{ checkin.initial_amount }}</div>
+        <div class="card-footer bg-info text-blue">Check-In Date-Time = {{ checkin.check_in_date_time }}</div>
         <!-- Only if customer has email -->
-        <div class="card-footer bg-info text-white">Last Edited On = {{ checkin.last_edited_on }}
+        <div class="card-footer bg-info text-blue">Last Edited On = {{ checkin.last_edited_on }}
         </div>
-        <div class="card-footer bg-info text-white">
+        <div class="card-footer bg-info text-blue">
             Checked In by: {% if staff.count == 0 %} {{ checkin.user }}{% else %}
             <a href="{% url 'staff-detail' staff.staff_id %}" class="text-white">{{ staff }}</a>
             {% endif %}
@@ -29,4 +29,3 @@
 </div>
 
 {% endblock %}
-

@@ -7,7 +7,7 @@
     {% if reservation_list %}
         <table class="table table-hover">
             <thead>
-            <tr>
+            <tr bgcolor = "#748949">
                 <th>Reservation ID</th>
                 <th>Customer</th>
                 <th>Staff</th>
@@ -18,11 +18,11 @@
                 <th>Check In?</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody bgcolor = "7DFCF8">
             {% for reservation in reservation_list %}
                 <tr>
                     <td>
-                        <a href="{% url 'reservation-detail' reservation.reservation_id %}"> {{ reservation.reservation_id }}</a>
+                        <a href="{% url 'reservation-detail' reservation.reservation_id %}" class="text-white" >{{ reservation.reservation_id }}</a>
                     </td>
                     <td>{{ reservation.customer }}</td>
                     <td>{{ reservation.staff }}</td>

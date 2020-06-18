@@ -10,18 +10,18 @@
         </form>
         <table class="table table-hover">
             <thead>
-            <tr>
+            <tr bgcolor = "748949">
                 <th>Check-In</th>
                 <th>Reservation</th>
                 <th>Rooms</th>
                 <th>Paid Amount</th>
-                <th>Check-In Date Time</th>
+                <th>Check-In Date-Time</th>
                 <th>Checkout?</th>
             </tr>
             </thead>
             <tbody>
             {% for check_in in checkin_list %}
-                <tr>
+                <tr bgcolor = "#7DFCF8">
                     <td>
                         <a href="{% url 'check_in-detail' check_in.id %}"> {{ check_in }}</a>
                     </td>
