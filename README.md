@@ -33,5 +33,3 @@ Then,
 python3 manage.py runserver
 ```
 * This will work if correctly set up.
-
-*You are supposed to be using linux environment with **Python 3**. Everything else is simple. The packages mentioned in requirements files are required for deployment especially in heroku.*
