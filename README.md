@@ -1,8 +1,5 @@
-# Hotel-Management-System
-**Hotel Management System** is under development. 
-* Clone using SSH key for your own good.
-  * You can refer to this [link](https://help.github.com/articles/connecting-to-github-with-ssh/) connecting to Github with SSH keys so that you don't need username and password everytime you perform push or pull request.
-  * Otherwise use HTTPS but you will need password everytime.
+# Belview Resort And Spa-Management-System 
+
 ### The software project contributors are required to install the dependencies as follows:
 1. If you want to install system wide:
 ```shell
@@ -26,7 +23,7 @@ __Note:__ To deactivate `virtualenv`, execute
 deactivate
 ```
 ### Finally:
-* Go to Hotel-Management-System folder that you cloned before.
+* Go to Belview_Resort_And_Spa folder that you cloned before.
 * Execute the followings: 
 ```shell
 python3 manage.py migrate
@@ -36,6 +33,5 @@ Then,
 python3 manage.py runserver
 ```
 * This will work if correctly set up.
-## For more information, visit [Django Documentation](https://docs.djangoproject.com/en/2.0/).
 
 *You are supposed to be using linux environment with **Python 3**. Everything else is simple. The packages mentioned in requirements files are required for deployment especially in heroku.*
