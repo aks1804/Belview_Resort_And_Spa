@@ -20,7 +20,7 @@ def index(request):
     This is the view for homepage.
     This is a function based view.
     """
-    page_title = _("Hotel Management System")  # For page title as well as heading
+    page_title = _("Belview Management")  # For page title as well as heading
     total_num_rooms = Room.objects.all().count()
     available_num_rooms = Room.objects.exclude(reservation__isnull=False).count()
     total_num_reservations = Reservation.objects.all().count()
