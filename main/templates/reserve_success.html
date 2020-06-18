@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% block content-title %}
-    <h1>Reservation Successful</h1>
+    <br><h2>Reservation Successful</h2><br>
 {% endblock %}
 {% block main-content %}
     <div class="container">
 
         <div class="card">
-             <div class="card-header bg.success">Reservation ID: {{ reservation.reservation_id }}</div>
-            <div class="card-body bg.primary">Customer: <a href="{% url 'customer-detail' reservation.customer.customer_id %}">{{ reservation.customer }}</a>
+             <div class="card-header bg.success bg-dark text-white text-center">Reservation ID: {{ reservation.reservation_id }}</div>
+            <div class="card-body bg-dark text-white text-center">Guest: <a href="{% url 'customer-detail' reservation.customer.customer_id %}">{{ reservation.customer }}</a>
             </div>
-            <div class="card-footer bg.info">Reserved by: <a href="{% url 'staff-detail' reservation.staff.staff_id %}">{{ reservation.staff }}</a></div>
+            <div class="card-footer bg.info bg-dark text-white text-center">Reserved by: <a href="{% url 'staff-detail' reservation.staff.staff_id %}">{{ reservation.staff }}</a></div>
   </div>
 </div>
 {% endblock %}

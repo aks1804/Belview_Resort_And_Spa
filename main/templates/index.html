@@ -1,64 +1,71 @@
 {% extends 'base.html' %}
 {% block content-title %}
-    <h1>{{ title }}</h1>
+    <br><h2>{{ title }}</h2><br>
 {% endblock %}
 <!-- ToDo Work on FrontEnd -->
 {% block main-content %}
     <div class="row">
-        <div class="card .col-md-3">
-            <div class="card-body">
-                <div class="card-header bg-primary text-white"> Total Rooms:</div>
-                <div class="card-body bg-dark text-white"> {{ total_num_rooms }}</div>
+        
+            <div class="card-body; col-4">
+                <div class="card-header bg-dark text-white text-center"> Total Rooms</div>
+                <div class="card-body bg-dark text-white text-center"> {{ total_num_rooms }}</div>
             </div>
-        </div>
+         
 
-        <div class="card .col-md-3">
-            <div class="card-body">
-                <div class="card-header bg-primary text-white"> Available Rooms:</div>
-                <div class="card-body bg-dark text-white"> {{ available_num_rooms }}</div>
-            </div>
-        </div>
+        <br>
+            <div class="card-body; col-4">
+                <div class="card-header bg-dark text-white text-center"> Available Rooms</div>
+                <div class="card-body bg-dark text-white text-center"> {{ available_num_rooms }}</div>
+           </div>
+        
 
-        <div class="card .col-md-3">
-            <div class="card-body">
-                <div class="card-header bg-primary text-white"> Total Reservations:</div>
-                <div class="card-body bg-dark text-white"> {{ total_num_reservations }}</div>
+        <br>
+            <div class="card-body; col-4">
+                <div class="card-header bg-dark text-white text-center"> Rooms Reserved</div>
+                <div class="card-body bg-dark text-white text-center"> {{ total_num_reservations }}</div>
             </div>
-        </div>
+    
+    </div>
+    <br>
+    <div class="row">
 
-        <div class="card .col-md-3">
-            <div class="card-body">
-                <div class="card-header bg-primary text-white"> Total Staffs:</div>
-                <div class="card-body bg-dark text-white">  {{ total_num_staffs }} </div>
+        <br>
+            <div class="card-body; col-6">
+                <div class="card-header bg-dark text-white text-center"> Working Staff</div>
+                <div class="card-body bg-dark text-white text-center">  {{ total_num_staffs }} </div>
             </div>
-        </div>
 
-        <div class="card .col-md-3">
-            <div class="card-body">
-                <div class="card-header bg-primary text-white"> Total Customers:</div>
-                <div class="card-body bg-dark text-white">{{ total_num_customers }}</div>
+
+        <br>
+            <div class="card-body; col-6">
+                <div class="card-header bg-dark text-white text-center"> Total Guests</div>
+                <div class="card-body bg-dark text-white text-center">{{ total_num_customers }}</div>
             </div>
-        </div>
+        
+        <br>
+    </div>
+    <br>
+    <div class="row">
         {% if user.is_authenticated %}
-            <div class="card .col-md-3">
-                <div class="card-body">
-                    <div class="card-header bg-primary text-white"> Last Reservation:</div>
+            <br>
+                <div class="card-body; col-12">
+                    <div class="card-header bg-dark text-white text-center"> See Latest Reservation</div>
                     {% if last_reserved_by.reservation_id %}
-                        <div class="card-body bg-dark text-white">Reservation for: <a
-                                href="{% url 'customer-detail' last_reserved_by.customer.customer_id %}" class="text-white">{{ last_reserved_by.customer }}</a>
+                        <div class="card-body bg-dark text-white text-center">Guest Number/Name: <a
+                                href="{% url 'customer-detail' last_reserved_by.customer.customer_id %}" class="text-white text-center">{{ last_reserved_by.customer }}</a>
                         </div>
-                        <div class="card-body bg-primary text-white">
-                            Reserved By:
+                        <div class="card-body bg-dark text-white text-center">
+                            Staff Resposible:
                             {% if perms.main.can_view_staff_detail %}
-                                <a href="{% url 'staff-detail' last_reserved_by.staff.staff_id %}" class="text-white">{{ last_reserved_by.staff }}</a>
+                                <a href="{% url 'staff-detail' last_reserved_by.staff.staff_id %}" class="text-white text-center">{{ last_reserved_by.staff }}</a>
                                 {% else %}{{ last_reserved_by.staff }}
                             {% endif %}
                         </div>
                     {% else %}
-                        <div class="card-body bg-dark text-white">Not Yet</div>
+                        <div class="card-body bg-dark text-white text-center">No Recent Reservations</div>
                     {% endif %}
                 </div>
-            </div>
+          
         {% endif %}
     </div>
 {% endblock %}

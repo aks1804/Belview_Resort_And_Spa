@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content-title %}
-    <h1>Signup Form</h1>
+    <br><h2>Signup Form</h2><br>
 {% endblock %}
 {% block sidebar %}
 {% endblock %}
@@ -9,12 +9,15 @@
         {% csrf_token %}
         {{ form.non_field_errors }}
         <fieldset class="fieldset">
-            <legend class="legend">Personal Information for Verification</legend>
+            <legend class="legend">Staff Verification</legend>
+            <p>Enter Information Submitted to Admin</p>
             <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ form.staff_id.errors }}
                     <label for="{{ form.staff_id.id_for_label }}">ID</label>{{ form.staff_id }}
                 </div>
+            </div>
+            <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ form.first_name.errors }}
                     <label for="{{ form.first_name.id_for_label }}">First Name</label>{{ form.first_name }}
@@ -31,16 +34,16 @@
             <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ form.email.errors }}
-                    <label for="{{ form.email.id_for_label }}">Email ID</label>{{ form.email }}
+                    <label for="{{ form.email.id_for_label }}">Email</label>{{ form.email }}
                 </div>
                 <div class="form-group col-auto">
                     {{ form.first_name.errors }}
-                    <label for="{{ form.contact_no.id_for_label }}">Contact Number</label>{{ form.contact_no }}
+                    <label for="{{ form.contact_no.id_for_label }}">Phone Number</label>{{ form.contact_no }}
                 </div>
             </div>
         </fieldset>
         <fieldset class="fieldset">
-            <legend class="legend">New Account Information</legend>
+            <legend class="legend">New Account</legend>
             <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ form.username.errors }}
@@ -56,6 +59,6 @@
                 </div>
             </div>
         </fieldset>
-        <input type="submit" value="Submit"/>
+        <input class="bg-dark" type="submit" value="Submit"/>
     </form>
 {% endblock %}

@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content-title %}
-    <h1>{{ title }}</h1>
+    <br><h2>Make Reservation</h2><br>
 {% endblock %}
 {% block main-content %}
     <form action="" method="post">
         {% csrf_token %}
         {{ reservation_form.non_field_errors }}
         <fieldset class="fieldset">
-            <legend class="legend">Personal Information</legend>
+            <legend class="legend">Guest Information</legend>
             <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ reservation_form.first_name.errors }}
@@ -26,14 +26,12 @@
                         Name</label>{{ reservation_form.last_name }}
                 </div>
             </div>
-        </fieldset>
-        <fieldset class="fieldset">
-            <legend class="legend">Contact Information</legend>
+
             <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ reservation_form.contact_no.errors }}
-                    <label for="{{ reservation_form.contact_no.id_for_label }}">Contact
-                        No</label>{{ reservation_form.contact_no }}
+                    <label for="{{ reservation_form.contact_no.id_for_label }}">Phone Number
+                    </label>{{ reservation_form.contact_no }}
                 </div>
                 <div class="form-group col-auto">
                     {{ reservation_form.email.errors }}
@@ -45,18 +43,17 @@
                 </div>
             </div>
         </fieldset>
+        <hr>
         <fieldset class="fieldset">
             <legend class="legend">Reservation Information</legend>
             <div class="form-row align-items-center">
                 <div class="form-group col-auto">
                     {{ reservation_form.no_of_children.errors }}
-                    <label for="{{ reservation_form.no_of_children.id_for_label }}">No of
-                        Children</label>{{ reservation_form.no_of_children }}
+                    <label for="{{ reservation_form.no_of_children.id_for_label }}">Children</label>{{ reservation_form.no_of_children }}
                 </div>
                 <div class="form-group col-auto">
                     {{ reservation_form.no_of_adults.errors }}
-                    <label for="{{ reservation_form.no_of_adults.id_for_label }}">No of
-                        Adults</label>{{ reservation_form.no_of_adults }}
+                    <label for="{{ reservation_form.no_of_adults.id_for_label }}">Adults</label>{{ reservation_form.no_of_adults }}
                 </div>
             </div>
             <div class="form-row align-items-center">
@@ -78,7 +75,7 @@
                         Departure: </label>{{ reservation_form.expected_departure_date_time }}
                 </div>
             </div>
-            <input type="submit" value="Confirm Reservation">
+            <input class="bg-dark "type="submit" value="Confirm Reservation">
         </fieldset>
     </form>
     {% comment %}

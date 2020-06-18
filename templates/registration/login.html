@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content-title %}
-    <h1>Login</h1>
+    <br><h2>Login</h2><br>
 {% endblock %}
 {% block login-status %}
 {% endblock %}
 {% block main-content %}
     {% if form.errors %}
-        <p class="notMatched">Username and password didn't match. Please Try Again.</p>
+        <p class="notMatched">Incorrect Username/Password! Please Try Again.</p>
     {% endif %}
     {% if next %}
         {% if user.is_authenticated %}
@@ -19,17 +19,17 @@
         {% csrf_token %}
         <div class="form-row align-items-center">
             <div class="form-group col-auto">
-                <label for="{{ form.username.id_for_label }}">Username</label>{{ form.username }}
+                <label for="{{ form.username.id_for_label }}">Username:</label>{{ form.username }}
             </div>
             <div class="form-group col-auto">
-                <label for="{{ form.password.id_for_label }}">Password</label>{{ form.password }}
+                <label for="{{ form.password.id_for_label }}">Password:</label>{{ form.password }}
             </div>
         </div>
-        <input type="submit" value="Login"/>
+        <input class="bg-dark" type="submit" value="Login"/>
         <input type="hidden" name="next" value="{{ next }}"/>
     </form>
 
     {# Assumes you setup the password_reset view in your URLconf #}
-    <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    <p><a href="{% url 'password_reset' %}">Did you forget your password?</a></p>
 
 {% endblock %}
